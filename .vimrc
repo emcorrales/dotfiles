@@ -27,4 +27,12 @@ set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
 "-------------------------PLUGINS-------------------------
+
+" CTRL P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" NERDTREE
+set runtimepath^=~/.vim/bundle/nerdtree
+let NERDTreeShowHidden=1
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
