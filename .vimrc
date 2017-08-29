@@ -25,3 +25,6 @@ set list listchars=tab:\ \ ,trail:·
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
+
+"-------------------------PLUGINS-------------------------
+set runtimepath^=~/.vim/bundle/ctrlp.vim
