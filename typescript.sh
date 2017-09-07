@@ -9,3 +9,5 @@ popd
 # Install tsuquyomi
 git clone https://github.com/Quramy/tsuquyomi.git ~/.vim/bundle/tsuquyomi
 
+# For syntax highlighting
+git clone https://github.com/leafgarland/typescript-vim.git ~/.vim/bundle/typescript-vim
