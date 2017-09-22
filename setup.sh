@@ -1,3 +1,4 @@
+#!/bin/bash
 # Remove previous vim configuration.
 rm -rf ~/.vim
 rm ~/.vimrc
