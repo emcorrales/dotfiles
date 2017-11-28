@@ -1,5 +1,5 @@
-set relativenumber		"Show the relative number.
-syntax on			"Enable syntax highlighting.
+set relativenumber  " Show the relative number.
+syntax on           " Enable syntax highlighting.
 
 "-------------------------SEARCH-------------------------
 set incsearch       " Find the next match as we type the search
