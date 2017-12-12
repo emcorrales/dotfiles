@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Install curl and git.
+sudo apt-get install git curl
+
 # Remove previous vim configuration.
 rm -rf ~/.vim
 rm ~/.vimrc
