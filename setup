@@ -1,11 +1,18 @@
 #!/bin/bash
-
-# Install curl and git.
-sudo apt-get install git curl
+if [ ! $(uname) = "Darwin" ]; then
+  sudo apt-get install git curl
+fi
 
 # Remove previous vim configuration.
-rm -rf ~/.vim
-rm ~/.vimrc
+if [ -d ~/.vim ]; then
+  echo "Deleting old .vim directory."
+  rm -rf ~/.vim
+fi
+
+if [ -f ~/.vimrc ]; then
+  echo "Deleting old .vimrc."
+  rm ~/.vimrc
+fi
 
 # Install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
