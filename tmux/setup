@@ -5,7 +5,7 @@ fi
 
 brew install tmux
 if [ -f ~/.tmux.conf ]; then
-  echo "Removing prevoius Tmux configuration..."
+  echo "Removing previous Tmux configuration..."
   rm ~/.tmux.conf
 fi
 ln -n .tmux.conf ~/.tmux.conf
