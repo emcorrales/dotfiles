@@ -1,0 +1,4 @@
+#!/bin/bash
+if [ $(uname) = "Darwin" ]; then
+  brew install zsh
+fi
