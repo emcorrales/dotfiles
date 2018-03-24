@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Install Homebrew
 echo "Installing Homebrew..."
@@ -6,7 +6,6 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 brew install tig tree
 
-# Install Tmux.
 echo "Installing tmux..."
 brew install tmux
 if [ -f ~/.tmux.conf ]; then
@@ -19,26 +18,19 @@ echo "Tmux configured sucessfully."
 # Install and configure GNU sed because OSX sed is not standard.
 echo "Installing GNU sed..."
 brew install gnu-sed
-echo "" >>  ~/.bash_profile
-echo "# GNU sed configurations." >> ~/.bash_profile
-echo 'export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"' >> ~/.bash_profile
-echo 'export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"' >> ~/.bash_profile
+echo "" >>  ~/.zsh_profile
+echo "# GNU sed configurations." >> ~/.zsh_profile
+echo 'export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"' >> ~/.zsh_profile
+echo 'export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"' >> ~/.zsh_profile
 
 
-# BASH CONFIGURATIONS
-echo "Configuring bash shell..."
+# ZSH CONFIGURATIONS
+echo "Configuring zsh..."
 
-if [ -f ~/.bash_aliases ]; then
-  echo "Removing prevoius bash_aliases..."
-  rm ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+  echo "Removing previous .aliases..."
+  rm ~/.aliases
 fi
-ln -n .bash_aliases ~/.bash_aliases
+ln -n .aliases ~/.aliases
 
-# Make .bash_profile load .bash_aliases aliases.
-echo "" >>  ~/.bash_profile
-echo "# Load aliases form .bash_aliases." >>  ~/.bash_profile
-echo "if [ -f ~/.bash_aliases ]; then" >>  ~/.bash_profile
-echo ". ~/.bash_aliases" >>  ~/.bash_profile
-echo "fi" >>  ~/.bash_profile
-
-. ~/.bash_profile
+source ~/.zsh_profile
