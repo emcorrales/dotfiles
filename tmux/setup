@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ $(uname) = "Darwin" ]; then
+  brew install tmux
+fi
+
+brew install tmux
+if [ -f ~/.tmux.conf ]; then
+  echo "Removing prevoius Tmux configuration..."
+  rm ~/.tmux.conf
+fi
+ln -n .tmux.conf ~/.tmux.conf
+echo "Tmux configured sucessfully."
