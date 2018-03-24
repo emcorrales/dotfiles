@@ -1,6 +1,6 @@
 Vim setup and configuration files
 ======
-My OSX and Ubuntu configurations.
+My OSX and Ubuntu vim configurations.
 
 Installation
 ------
