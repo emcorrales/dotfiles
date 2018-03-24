@@ -14,6 +14,17 @@ if [ -f ~/.vimrc ]; then
   rm ~/.vimrc
 fi
 
+# Check if there is a copy of .vimrc on the current or parent directory
+# and create a hard symlink to the home directory's .virmrc file if it exists.
+if [ -f .vimrc ]; then
+  ln -n .vimrc ~/.vimrc
+elif [ -f ../.vimrc ]; then
+  ln -n ../.vimrc ~/.vimrc
+else
+  echo "File .vimrc not found."
+  exit 0
+fi
+
 # Install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
@@ -26,6 +37,3 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
 # Install vim-colors-solarized
 git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/vim-colors-solarized
-
-# Create a hard symlink to user's .virmrc file.
-ln -n .vimrc ~/.vimrc
