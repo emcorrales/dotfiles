@@ -8,5 +8,16 @@ if [ -f ~/.tmux.conf ]; then
   echo "Removing previous Tmux configuration..."
   rm ~/.tmux.conf
 fi
-ln -n .tmux.conf ~/.tmux.conf
+
+# Check if there is a copy of .tmux.conf on the current or parent directory
+# and create a hard symlink to the home directory's .tmux.conf file if it exists.
+if [ -f .tmux.conf ]; then
+  ln -n .tmux.conf ~/.tmux.conf
+elif [ -f ../.tmux.conf ]; then
+  ln -n ../.tmux.conf ~/.tmux.conf
+else
+  echo "File .tmux.conf not found."
+  exit 0
+fi
+
 echo "Tmux configured sucessfully."
