@@ -6,31 +6,6 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 brew install tig tree
 
-echo "Installing tmux..."
-brew install tmux
-if [ -f ~/.tmux.conf ]; then
-  echo "Removing prevoius Tmux configuration..."
-  rm ~/.tmux.conf
-fi
-ln -n .tmux.conf ~/.tmux.conf
-echo "Tmux configured sucessfully."
-
-# Install and configure GNU sed because OSX sed is not standard.
-echo "Installing GNU sed..."
-brew install gnu-sed
-echo "" >>  ~/.zsh_profile
-echo "# GNU sed configurations." >> ~/.zsh_profile
-echo 'export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"' >> ~/.zsh_profile
-echo 'export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"' >> ~/.zsh_profile
-
-
-# ZSH CONFIGURATIONS
-echo "Configuring zsh..."
-
-if [ -f ~/.aliases ]; then
-  echo "Removing previous .aliases..."
-  rm ~/.aliases
-fi
-ln -n .aliases ~/.aliases
+./tmux/setup
 
 source ~/.zsh_profile
