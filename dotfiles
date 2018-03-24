@@ -7,5 +7,3 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install tig tree
 
 ./tmux/setup
-
-source ~/.zsh_profile
