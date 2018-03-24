@@ -1,0 +1,4 @@
+# Load aliases form .bash_aliases.
+if [ -f ~/.aliases ]; then
+  . ~/.aliases
+fi
