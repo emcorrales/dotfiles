@@ -23,4 +23,3 @@ Execute the following commands in your terminal.
 cd dotfiles/vim
 ./typescript-setup
 ```
-
