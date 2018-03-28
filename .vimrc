@@ -1,3 +1,4 @@
+"-------------------------VISUAL-------------------------------------------
 syntax on           " Enable syntax highlighting.
 set number relativenumber " Enable hybrid lines.
 
@@ -7,14 +8,21 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-"-------------------------SEARCH-------------------------
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
+
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+
+"-------------------------SEARCH-------------------------------------------
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 
-"-------------------------INDENTIONS-------------------------
+"-------------------------INDENTIONS---------------------------------------
 set autoindent
 set smartindent
 set smarttab
@@ -26,14 +34,8 @@ set expandtab
 filetype plugin on
 filetype indent on
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
 
-set nowrap       "Don't wrap lines
-set linebreak    "Wrap lines at convenient points
-
-"-------------------------PLUGINS-------------------------
-
+"-------------------------PLUGINS------------------------------------------
 execute pathogen#infect()
 
 " NERDTREE
