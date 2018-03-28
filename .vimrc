@@ -14,6 +14,8 @@ set linebreak    "Wrap lines at convenient points
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
+:set colorcolumn=80 " Show column marker.
+
 
 "-------------------------SEARCH-------------------------------------------
 set incsearch       " Find the next match as we type the search
