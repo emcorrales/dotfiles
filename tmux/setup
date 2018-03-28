@@ -1,6 +1,8 @@
 #!/bin/bash
 if [ $(uname) = "Darwin" ]; then
   brew install tmux
+elif [ $(uname) = "Linux" ]; then
+  sudo apt-get install tmux xclip
 fi
 
 if [ -f ~/.tmux.conf ]; then
