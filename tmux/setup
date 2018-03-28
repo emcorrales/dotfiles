@@ -3,7 +3,6 @@ if [ $(uname) = "Darwin" ]; then
   brew install tmux
 fi
 
-brew install tmux
 if [ -f ~/.tmux.conf ]; then
   echo "Removing previous Tmux configuration..."
   rm ~/.tmux.conf
