@@ -1,5 +1,11 @@
-set relativenumber  " Show the relative number.
 syntax on           " Enable syntax highlighting.
+set number relativenumber " Enable hybrid lines.
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 "-------------------------SEARCH-------------------------
 set incsearch       " Find the next match as we type the search
