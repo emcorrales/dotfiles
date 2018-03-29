@@ -26,7 +26,7 @@ map <C-n> :NERDTreeToggle<CR>
 " SOLARIZED
 syntax enable
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
 
 
 "-------------------------VISUAL-------------------------------------------
