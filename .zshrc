@@ -93,3 +93,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+# Load aliases form .bash_aliases.
+if [ -f ~/.aliases ]; then
+  . ~/.aliases
+fi
+
+export EDITOR=vim
+export REACT_EDITOR=vim
