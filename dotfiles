@@ -5,6 +5,7 @@ if [ $(uname) = "Darwin" ]; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   brew install tig tree
+  brew cask install iterm2
 fi
 
 ./vim/setup
