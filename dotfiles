@@ -8,5 +8,5 @@ if [ $(uname) = "Darwin" ]; then
   brew cask install iterm2
 fi
 
-./vim/setup
-./tmux/setup
+./scripts/vim-setup
+./scripts/tmux/setup
