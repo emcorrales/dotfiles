@@ -100,5 +100,6 @@ if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
 
-export EDITOR=vim
-export REACT_EDITOR=vim
+if [ -f ~/.env ]; then
+  . ~/.env
+fi
