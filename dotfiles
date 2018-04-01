@@ -5,6 +5,13 @@ if [ $(uname) = "Darwin" ]; then
 
   brew install tig tree
   brew cask install iterm2
+elif [ $(uname) = "Linux" ]; then
+  sudo apt-get update
+  sudo apt-get install build-essential
+  sud apt-get install tree tig
+else
+  echo "Terminal not supported."
+  exit 0
 fi
 
 ./scripts/vim-setup
