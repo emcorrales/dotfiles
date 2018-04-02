@@ -1,6 +1,6 @@
 dotfiles
 ======
-My OSX and Ubuntu configurations.
+My configuration files.
 
 Installation
 ------
@@ -12,3 +12,5 @@ cd dotfiles
 This will install and configure the tools in the order below:
 1. vim
 2. tmux
+3. bash
+4. zsh
