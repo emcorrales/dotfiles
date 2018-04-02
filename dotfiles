@@ -15,4 +15,4 @@ else
 fi
 
 ./scripts/vim-setup
-./scripts/tmux/setup
+./scripts/tmux-setup
