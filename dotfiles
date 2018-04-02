@@ -16,3 +16,5 @@ fi
 
 ./scripts/vim-setup
 ./scripts/tmux-setup
+./scripts/bash-setup
+./scripts/zsh-setup
