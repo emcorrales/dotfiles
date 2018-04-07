@@ -24,4 +24,4 @@ echo "Copied .dircolors file to home directory."
 ./scripts/vim-setup
 ./scripts/tmux-setup
 ./scripts/bash-setup
-./scripts/zsh-setup
+# ./scripts/zsh-setup
