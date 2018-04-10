@@ -1,43 +1,33 @@
 #!/bin/bash
+if [ -f ~/.bash_profile ]; then
+  echo "Backing up previous .bash_profile file..."
+  mv ~/.bash_profile ~/.bash_profile.bak
+fi
 
-# OSX doesn't read .bashrc.
-if [ $(uname) = "Darwin" ]; then
-  # Delete previous .bash_profile file if it already exists in the home directory.
-  if [ -f ~/.bash_profile ]; then
-    echo "Backing up previous .bash_profile file..."
-    mv ~/.bash_profile ~/.bash_profile.bak
-  fi
-
-  # Create a hard symlink for .bash_profile file.
-  if [ -f .bash_profile ]; then
-    ln -n .bash_profile ~/.bash_profile
-    echo "Copied .bash_profile file to home directory."
-  elif [ -f ../.bash_profile ]; then
-    ln -n ../.bash_profile ~/.bash_profile
-    echo "Copied .bash_profile file to home directory."
-  else
-    echo "File .bash_profile not found."
-  fi
-elif [ $(uname) = "Linux" ]; then
-  # Delete previous .bashrc file if it already exists in the home directory.
-  if [ -f ~/.bashrc ]; then
-    echo "Backing up previous .bashrc file..."
-    mv ~/.bashrc ~/.bashrc.bak
-  fi
-
-  # Create a hard symlink for .bashrc file.
-  if [ -f .bashrc ]; then
-    ln -n .bashrc ~/.bashrc
-    echo "Copied .bashrc file to home directory."
-  elif [ -f ../.bashrc ]; then
-    ln -n ../.bashrc ~/.bashrc
-    echo "Copied .bashrc file to home directory."
-  else
-    echo "File .bashrc not found."
-  fi
+if [ -f .bash_profile ]; then
+  ln -n .bash_profile ~/.bash_profile
+  echo "Copied .bash_profile file to home directory."
+elif [ -f ../.bash_profile ]; then
+  ln -n ../.bash_profile ~/.bash_profile
+  echo "Copied .bash_profile file to home directory."
 else
-  echo "Not supported."
-  exit 0
+  echo "File .bash_profile not found."
+fi
+
+
+if [ -f ~/.bashrc ]; then
+  echo "Backing up previous .bashrc file..."
+  mv ~/.bashrc ~/.bashrc.bak
+fi
+
+if [ -f .bashrc ]; then
+  ln -n .bashrc ~/.bashrc
+  echo "Copied .bashrc file to home directory."
+elif [ -f ../.bashrc ]; then
+  ln -n ../.bashrc ~/.bashrc
+  echo "Copied .bashrc file to home directory."
+else
+  echo "File .bashrc not found."
 fi
 
 # Delete previous .aliases file if it already exists in the home directory.
