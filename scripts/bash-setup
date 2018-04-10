@@ -30,13 +30,12 @@ else
   echo "File .bashrc not found."
 fi
 
-# Delete previous .aliases file if it already exists in the home directory.
+
 if [ -f ~/.aliases ]; then
   echo "Removing previous .aliases file..."
   rm -f ~/.aliases
 fi
 
-# Create a hard symlink for .aliases file.
 if [ -f .aliases ]; then
   ln -n .aliases ~/.aliases
   echo "Copied .aliases file to home directory."
@@ -47,13 +46,12 @@ else
   echo "File .aliases not found."
 fi
 
-# Delete previous .env file if it already exists in the home directory.
+
 if [ -f ~/.env ]; then
   echo "Removing previous .env file..."
   rm -f ~/.env
 fi
 
-# Create a hard symlink for .env file.
 if [ -f .env ]; then
   ln -n .env ~/.env
   echo "Copied .env file to home directory."
@@ -63,4 +61,3 @@ elif [ -f ../.env ]; then
 else
   echo "File .env not found."
 fi
-
