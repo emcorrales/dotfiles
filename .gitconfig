@@ -1,2 +1,4 @@
 [user]
   name = Emmanuel Corrales
+[core]
+  excludesfile = ~/.gitignore_global
