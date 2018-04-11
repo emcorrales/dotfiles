@@ -9,10 +9,10 @@ fi
 
 if [ -f .gitignore_global ]; then
   ln -n .gitignore_global ~/.gitignore_global
-  echo "Copied .gitignore_global file to $HOME."
+  echo "Moved .gitignore_global file to $HOME."
 elif [ -f ../.gitignore_global ]; then
   ln -n ../.gitignore_global ~/.gitignore_global
-  echo "Copied .gitignore_global file to $HOME."
+  echo "Moved .gitignore_global file to $HOME."
 else
   echo "File .gitignore_global not found."
 fi
