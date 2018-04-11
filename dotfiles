@@ -21,6 +21,7 @@ fi
 ln -n .dircolors ~/.dircolors
 echo "Copied .dircolors file to home directory."
 
+./scripts/git-setup
 ./scripts/vim-setup
 ./scripts/tmux-setup
 ./scripts/bash-setup
