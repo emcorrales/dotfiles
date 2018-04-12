@@ -19,3 +19,11 @@ fi;
 
 dotfiles checkout
 dotfiles config status.showUntrackedFiles no
+
+# Vundle setup
+if [ -d ~/.vim ]; then
+  echo "Backing up old .vim directory."
+  mv ~/.vim $DOTFILES_OLD
+fi
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo | echo | vim +PluginInstall +qall &>/dev/null
