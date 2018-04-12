@@ -26,12 +26,12 @@ if [ $(uname) = "Darwin" ]; then
   echo "Installing Homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-  brew install tig tree
+  brew install tig tree tmux
   brew cask install iterm2
 elif [ $(uname) = "Linux" ]; then
   sudo apt-get update
   sudo apt-get install build-essential
-  sud apt-get install curl tree tig
+  sud apt-get install curl tig tmux tree xclip
 else
   echo "Terminal not supported."
   exit 0
