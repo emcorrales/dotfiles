@@ -31,7 +31,7 @@ if [ $(uname) = "Darwin" ]; then
 elif [ $(uname) = "Linux" ]; then
   sudo apt-get update
   sudo apt-get install build-essential
-  sud apt-get install curl tig tmux tree xclip
+  sudo apt-get install curl tig tmux tree xclip
 else
   echo "Terminal not supported."
   exit 0
