@@ -1,3 +1,4 @@
+#!/bin/bash
 DOTFILES_HOME=$HOME/.dotfiles
 DOTFILES_OLD=$HOME/.dotfiles.old/`date +"%m-%d-%y-%T"`
 
