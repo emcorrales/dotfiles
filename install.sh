@@ -1,7 +1,7 @@
-git clone --bare https://github.com/EmmanuelCorrales/dotfiles.git $HOME/.dotfiles
-
 DOTFILES_HOME=$HOME/.dotfiles
 DOTFILES_OLD=$HOME/.dotfiles.old/`date +"%m-%d-%y-%T"`
+
+git clone --bare https://github.com/EmmanuelCorrales/dotfiles.git $DOTFILES_HOME
 
 function dotfiles {
   git --git-dir=$DOTFILES_HOME --work-tree=$HOME $@
