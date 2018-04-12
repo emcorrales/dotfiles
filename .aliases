@@ -9,3 +9,5 @@ alias egrep='egrep --color=auto'
 
 alias jj='jobs'
 alias rm='rm -i'
+alias xp='xclip -o'
+alias xc='xclip -sel clipboard'
