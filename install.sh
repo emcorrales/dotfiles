@@ -21,6 +21,22 @@ fi;
 dotfiles checkout
 dotfiles config status.showUntrackedFiles no
 
+# Download and install essentials.
+if [ $(uname) = "Darwin" ]; then
+  echo "Installing Homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  brew install tig tree
+  brew cask install iterm2
+elif [ $(uname) = "Linux" ]; then
+  sudo apt-get update
+  sudo apt-get install build-essential
+  sud apt-get install curl tree tig
+else
+  echo "Terminal not supported."
+  exit 0
+fi
+
 # Vundle setup
 if [ -d ~/.vim ]; then
   echo "Backing up old .vim directory."
