@@ -5,7 +5,7 @@ DOTFILES_OLD=$HOME/.dotfiles.old/`date +"%m-%d-%y-%T"`
 [ -f $DOTFILES_HOME ] && rm -rf $DOTFILES_HOME
 git clone --bare https://github.com/EmmanuelCorrales/dotfiles.git $DOTFILES_HOME
 
-function dotfiles {
+dotfiles() {
   git --git-dir=$DOTFILES_HOME --work-tree=$HOME $@
 }
 
