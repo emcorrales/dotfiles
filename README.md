@@ -6,7 +6,7 @@ Installation
 ------
 Execute the following commands in your terminal.
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/EmmanuelCorrales/dotfiles/master/scripts/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/EmmanuelCorrales/dotfiles/master/tools/install.sh)"
 ```
 This will install and configure the tools in the order below:
 1. vim
