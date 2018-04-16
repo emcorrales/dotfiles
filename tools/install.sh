@@ -44,4 +44,5 @@ if [ -d ~/.vim ]; then
   mv ~/.vim $DOTFILES_OLD
 fi
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo "Downloading and installing Vim plugins with Vundle..."
 echo | echo | vim +PluginInstall +qall &>/dev/null
