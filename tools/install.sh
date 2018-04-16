@@ -1,12 +1,12 @@
 #!/bin/bash
-DOTFILES_HOME=$HOME/.dotfiles
+DOTFILES_REPO=$HOME/.dotfiles
 DOTFILES_OLD=$HOME/.dotfiles.old/`date +"%m-%d-%y-%T"`
 
-[ -f $DOTFILES_HOME ] && rm -rf $DOTFILES_HOME
-git clone --bare https://github.com/EmmanuelCorrales/dotfiles.git $DOTFILES_HOME
+[ -f $DOTFILES_REPO ] && rm -rf $DOTFILES_REPO
+git clone --bare https://github.com/EmmanuelCorrales/dotfiles.git $DOTFILES_REPO
 
 dotfiles() {
-  git --git-dir=$DOTFILES_HOME --work-tree=$HOME $@
+  git --git-dir=$DOTFILES_REPO --work-tree=$HOME $@
 }
 
 mkdir -p $DOTFILES_OLD
