@@ -9,7 +9,10 @@ alias egrep='egrep --color=auto'
 
 alias jj='jobs'
 alias rm='rm -i'
-alias xp='xclip -o'
-alias xc='xclip -sel clipboard'
+
+if [ $(uname) = "Linux" ]; then
+  alias xp='xclip -o'
+  alias xc='xclip -sel clipboard'
+fi
 
 alias dotfiles='git --git-dir=$DOTFILES --work-tree=$HOME $@'
