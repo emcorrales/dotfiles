@@ -66,3 +66,8 @@ set expandtab
 
 filetype plugin on
 filetype indent on
+
+
+"-------------------------INDENTIONS---------------------------------------
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
