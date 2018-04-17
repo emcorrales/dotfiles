@@ -2,3 +2,5 @@
   name = Emmanuel Corrales
 [core]
   excludesfile = ~/.gitignore_global
+[alias]
+  tree = log --graph --oneline --decorate --all
