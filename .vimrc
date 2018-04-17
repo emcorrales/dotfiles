@@ -29,7 +29,7 @@ set background=dark
 silent! colorscheme solarized
 
 
-"-------------------------VISUAL-------------------------------------------
+"-----------------------------------VISUAL--------------------------------------
 syntax on           " Enable syntax highlighting.
 set number relativenumber " Enable hybrid lines.
 
@@ -48,14 +48,14 @@ set list listchars=tab:\ \ ,trail:·
 :set colorcolumn=80 " Show column marker.
 
 
-"-------------------------SEARCH-------------------------------------------
+"-----------------------------------SEARCH--------------------------------------
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 
-"-------------------------INDENTIONS---------------------------------------
+"-----------------------------------INDENTIONS----------------------------------
 set autoindent
 set smartindent
 set smarttab
@@ -68,6 +68,6 @@ filetype plugin on
 filetype indent on
 
 
-"--------------------------------OTHERS-----------------------------------------
+"-----------------------------------OTHERS-------------------------------------
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
