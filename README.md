@@ -9,5 +9,5 @@ Installation
 ------
 Execute the following commands in your terminal.
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/EmmanuelCorrales/dotfiles/master/tools/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/EmmanuelCorrales/dotfiles/master/tools/install.sh)"
 ```
