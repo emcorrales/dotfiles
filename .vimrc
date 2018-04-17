@@ -68,6 +68,6 @@ filetype plugin on
 filetype indent on
 
 
-"-------------------------INDENTIONS---------------------------------------
+"--------------------------------OTHERS-----------------------------------------
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
