@@ -1,4 +1,16 @@
 #!/bin/bash
+if [ $(uname) = "Darwin" ]; then
+  echo "Installing Homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install tmux
+elif [ $(uname) = "Linux" ]; then
+  sudo apt-get install build-essential curl tmux xclip
+else
+  echo "Terminal not supported."
+  exit 0
+fi
+
+echo "Setting up dotfiles..."
 DOTFILES_REPO=$HOME/.dotfiles
 DOTFILES_OLD=$HOME/.dotfiles.old/`date +"%m-%d-%y-%T"`
 
@@ -22,17 +34,6 @@ fi;
 dotfiles checkout
 dotfiles config status.showUntrackedFiles no
 
-# Download and install essentials.
-if [ $(uname) = "Darwin" ]; then
-  echo "Installing Homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew install tmux
-elif [ $(uname) = "Linux" ]; then
-  sudo apt-get install build-essential curl tmux xclip
-else
-  echo "Terminal not supported."
-  exit 0
-fi
 
 # Vundle setup
 if [ -d ~/.vim ]; then
