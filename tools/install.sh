@@ -26,13 +26,9 @@ dotfiles config status.showUntrackedFiles no
 if [ $(uname) = "Darwin" ]; then
   echo "Installing Homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-  brew install tig tree tmux
-  brew cask install iterm2
+  brew install tmux
 elif [ $(uname) = "Linux" ]; then
-  sudo apt-get update
-  sudo apt-get install build-essential
-  sudo apt-get install curl tig tmux tree xclip
+  sudo apt-get install build-essential curl tmux xclip
 else
   echo "Terminal not supported."
   exit 0
