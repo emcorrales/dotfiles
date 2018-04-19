@@ -17,6 +17,6 @@ rbenv global 2.4.2
 ruby -v
 
 gem install bundler
-gem install rails -v 5.1.4
+gem install rails
 rbenv rehash
 rails -v
