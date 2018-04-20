@@ -5,3 +5,7 @@
 [alias]
   tree = log --graph --oneline --decorate --all
   ls-subtrees = !"git log | grep git-subtree-dir | awk '{ print $2 }'"
+  rm-subtree = "!f() {\
+      git filter-branch --index-filter\
+      \"git rm --cached --ignore-unmatch -rf $1\" --prune-empty -f HEAD;\
+    }; f"
