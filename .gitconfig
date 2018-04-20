@@ -3,6 +3,7 @@
 [core]
   excludesfile = ~/.gitignore_global
 [alias]
+  alias = !"git config --get-regexp alias"
   tree = log --graph --oneline --decorate --all
   ls-subtrees = !"git log | grep git-subtree-dir | awk '{ print $2 }'"
   rm-subtree = "!f() {\
