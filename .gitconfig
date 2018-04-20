@@ -4,3 +4,4 @@
   excludesfile = ~/.gitignore_global
 [alias]
   tree = log --graph --oneline --decorate --all
+  ls-subtrees = !"git log | grep git-subtree-dir | awk '{ print $2 }'"
