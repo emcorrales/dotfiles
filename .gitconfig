@@ -2,6 +2,8 @@
   name = Emmanuel Corrales
 [core]
   excludesfile = ~/.gitignore_global
+[commit]
+  template = ~/.gitmessage
 [alias]
   alias = !"git config --get-regexp alias"
   tree = !"git log --graph --oneline --decorate --all --color=always | more -R -S"
