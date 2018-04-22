@@ -4,6 +4,4 @@ if which rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi
 
-if [ $(uname) = "Linux" ]; then
-  PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-fi
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
