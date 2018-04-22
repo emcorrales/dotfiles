@@ -4,7 +4,7 @@
   excludesfile = ~/.gitignore_global
 [alias]
   alias = !"git config --get-regexp alias"
-  tree = log --graph --oneline --decorate --all
+  tree = !"git log --graph --oneline --decorate --all --color=always | more -R -S"
   ls-subtrees = !"git log | grep git-subtree-dir | awk '{ print $2 }'"
   rm-subtree = "!f() {\
       git filter-branch --index-filter\
