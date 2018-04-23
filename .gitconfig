@@ -6,7 +6,7 @@
   template = ~/.gitmessage
 [alias]
   alias = !"git config --get-regexp alias"
-  tree = !"git log --graph --oneline --decorate --all --color=always | more -R -S"
+  tree = !"git log --graph --oneline --decorate --all --color=always | less -R -S"
   ls-subtrees = !"git log | grep git-subtree-dir | awk '{ print $2 }'"
   rm-subtree = "!f() {\
       git filter-branch --index-filter\
