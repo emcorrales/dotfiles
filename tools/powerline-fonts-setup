@@ -1,12 +1,6 @@
 #!/bin/bash
-if [ $(uname) = "Darwin" ]; then
-  git clone https://github.com/powerline/fonts.git --depth=1
-  cd fonts
-  ./install.sh
-  cd ..
-  rm -rf fonts
-elif [ $(uname) = "Linux" ]; then
-  sudo apt-get fonts-powerline
-else
-  echo "Not supported."
-fi
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
