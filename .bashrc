@@ -2,6 +2,10 @@
 [ -f ~/.aliases ] && source ~/.aliases
 
 export PS1='\[\e[32m\]#(\j)>\[\e[m\] '
+
+export HISTFILESIZE=20000
+export HISTSIZE=20000
+
 export DOTFILES_REPO=$HOME/.dotfiles
 export DOTFILES_OLD=$HOME/.dotfiles.old
 
