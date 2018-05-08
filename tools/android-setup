@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ $(uname) = "Linux" ]; then
+  URL=https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
+elif [ $(uname) = "Darwin" ]; then
+  URL=https://dl.google.com/android/repository/sdk-tools-darwin-3859397.zip
+fi
+
+wget -0 sdk-tools.zip $URL
+
+unzip sdk-tools -d ~/DevTools/android/sdk
+if [ $? == 0 ]; then
+  echo "Android SDK Tools installed."
+else
+  echo "Android SDK Tools installation failed."
+fi
