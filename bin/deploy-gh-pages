@@ -2,5 +2,6 @@
 bundle exec jekyll build
 git add _site
 git commit -m "Deploy"
+git branch -D gh-pages
 git subtree split -P _site -b gh-pages
 git subtree push -P _site origin gh-pages
