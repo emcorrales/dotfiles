@@ -1,6 +1,5 @@
 #!/bin/bash
-JEKYLL_ENV=production
-bundle exec jekyll build
+JEKYLL_ENV=production bundle exec jekyll build
 echo "Deploying to $1."
 echo $1 > _site/CNAME
 git add _site
