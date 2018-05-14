@@ -1,4 +1,5 @@
 #!/bin/bash
+JEKYLL_ENV=production
 bundle exec jekyll build
 git add _site
 git commit -m "Deploy"
