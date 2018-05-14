@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ $(uname) = "Darwin" ]; then
+  # Install sqlite 3.
+  brew install sqlite3
+
+  # Install MySQL.
+  brew install mysql
+  brew services start mysql
+
+  # Install PostgreSQL.
+  brew install postgresql
+  brew services start postgresql
+fi
