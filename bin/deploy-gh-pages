@@ -1,7 +1,8 @@
 #!/bin/bash
 JEKYLL_ENV=production
 bundle exec jekyll build
-cat $1 > _site/CNAME
+echo "Deploying to $1."
+echo $1 > _site/CNAME
 git add _site
 git commit -m "Deploy"
 git branch -D gh-pages
