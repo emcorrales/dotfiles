@@ -1,7 +1,7 @@
 [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 [ -f ~/.aliases ] && source ~/.aliases
 
-export PS1='\[\e[32m\]#(\j)>\[\e[m\] '
+[ -f ~/.prompt ] && source ~/.prompt
 
 export HISTFILESIZE=20000
 export HISTSIZE=20000
