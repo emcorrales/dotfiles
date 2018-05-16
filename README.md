@@ -1,4 +1,4 @@
-dotfiles
+Dot Files
 ======
 My configuration files for Mac and Linux. This project was built for my personal
 use. You may take whatever you want but at your own risk. I cannot guarantee
