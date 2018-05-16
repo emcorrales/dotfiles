@@ -20,5 +20,5 @@ parse_git_branch () {
     -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
-export PS1=$GREEN'\u'$MAGENTA'@'$YELLOW'\h'$CYAN' \w '$YELLOW'\j '\
+export PS1=$GREEN'\u'$MAGENTA' @ '$YELLOW'\h'$CYAN' \w '$YELLOW'\j '\
 $RED'$(parse_git_branch)\n'$GREEN'└─▶'$NO_COLOUR' '
