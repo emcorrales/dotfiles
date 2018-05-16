@@ -14,6 +14,9 @@ alias rm='rm -i'
 if [ $(uname) = "Linux" ]; then
   alias xp='xclip -o'
   alias xc='xclip -sel clipboard'
+elif [ $(uname) = "Darwin" ]; then
+  alias xp='pbpaste'
+  alias xc='pbcopy'
 fi
 
 alias dot='git --git-dir=$DOTFILES_REPO --work-tree=$HOME $@'
