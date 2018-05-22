@@ -10,7 +10,7 @@ then
     exit 1
 fi
 
-php composer-setup.php --install-dir=$HOME/bin
+php composer-setup.php --install-dir=$HOME/bin --filename=composer
 RESULT=$?
 rm composer-setup.php
 exit $RESULT
