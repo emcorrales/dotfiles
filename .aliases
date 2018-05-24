@@ -11,6 +11,8 @@ alias hgrep='history | grep'
 alias jj='jobs'
 alias rm='rm -i'
 
+alias prettify='python -mjson.tool'
+
 if [ $(uname) = "Linux" ]; then
   alias xp='xclip -o'
   alias xc='xclip -sel clipboard'
