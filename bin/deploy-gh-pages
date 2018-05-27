@@ -8,3 +8,4 @@ git branch -D gh-pages
 git push origin gh-pages --delete
 git subtree split -P _site -b gh-pages
 git subtree push -P _site origin gh-pages
+[ $? = 0 ] && git reset HEAD~1 --hard
