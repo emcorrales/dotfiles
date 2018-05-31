@@ -13,6 +13,11 @@ alias rm='rm -i'
 
 alias prettify='python -mjson.tool'
 
+alias gs='git status'
+alias gl='git log'
+alias gt='git tree'
+alias gd='git diff'
+
 if [ $(uname) = "Linux" ]; then
   alias xp='xclip -o'
   alias xc='xclip -sel clipboard'
