@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo mkdir /tmp/ramdisk
+sudo mount -t tmpfs -o size=2G tmpfs /tmp/ramdisk/
+sudo mv /var/lib/mysql /tmp/ramdisk/mysql
+sudo ln -s /tmp/ramdisk/mysql /var/lib/mysql
+sudo chown mysql:mysql /tmp/ramdisk/mysql
+sudo /etc/init.d/mysql restart
