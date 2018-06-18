@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $(uname) = "Linux" ]; then
+  sudo apt-get install phpmyadmin
+  sudo echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
+  /etc/init.d/apache2 restart
+else
+  echo "This OS is not supported."
+fi
