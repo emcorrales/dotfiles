@@ -30,3 +30,5 @@ fi
 
 alias dot='git --git-dir=$DOTFILES_REPO --work-tree=$HOME $@'
 alias dotfiles='git --git-dir=$DOTFILES_REPO --work-tree=$HOME $@'
+
+source ~/.work_aliases
