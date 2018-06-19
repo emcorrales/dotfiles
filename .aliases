@@ -18,6 +18,8 @@ alias gl='git log'
 alias gt='git tree'
 alias gd='git diff'
 
+alias txd='tmux attach -d'
+
 if [ $(uname) = "Linux" ]; then
   alias xp='xclip -o'
   alias xc='xclip -sel clipboard'
