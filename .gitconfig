@@ -4,6 +4,9 @@
   excludesfile = ~/.gitignore_global
 [commit]
   template = ~/.gitmessage
+# Uncomment to store credentials
+# [credential]
+#   helper = store --file ~/.gitcredentials
 [alias]
   alias = !"git config --get-regexp alias"
   tree = !"git log --graph --oneline --decorate --all --color=always | less -R -S"
