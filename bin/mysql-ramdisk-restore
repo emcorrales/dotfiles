@@ -1,3 +1,6 @@
 #!/bin/bash
-sudo rm -rf /var/lib/mysql
-sudo cp -pRL /var/lib/mysql.bak /var/lib/mysql
+# Delete detached symlink
+[ -f $/var/lib/mysql ] && sudo rm -rf /var/lib/mysql
+
+# Restore backups
+[ -f $/var/lib/mysql.bak ] && sudo cp -pRL /var/lib/mysql.bak /var/lib/mysql
