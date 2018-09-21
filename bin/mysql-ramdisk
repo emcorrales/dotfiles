@@ -1,7 +1,20 @@
 #!/bin/bash
-sudo mkdir /tmp/ramdisk
-sudo mount -t tmpfs -o size=2G tmpfs /tmp/ramdisk/
-sudo mv /var/lib/mysql /tmp/ramdisk/mysql
-sudo ln -s /tmp/ramdisk/mysql /var/lib/mysql
-sudo chown mysql:mysql /tmp/ramdisk/mysql
+# Create ramdisk if it doesn't exist.
+[ ! -d /tmp/ramdisk ] && sudo mkdir /tmp/ramdisk
+
+# Mount ramdisk has been created.
+[ -d /tmp/ramdisk ] && sudo mount -t tmpfs -o size=2G tmpfs /tmp/ramdisk/
+
+if [ -d /var/lib/mysql ]; then
+  # Move the mysql databases to the ramdisk if it exists
+  sudo mv /var/lib/mysql /tmp/ramdisk/mysql
+  # Create a symbolic link.
+  sudo ln -s /tmp/ramdisk/mysql /var/lib/mysql
+  # Change ownership to mysql.
+  [ -d /tmp/ramdisk/mysql ] && sudo chown mysql:mysql /tmp/ramdisk/mysql
+else
+  echo "No MySQL directory at /var/lib."
+fi;
+
+# Restart mysql.
 sudo /etc/init.d/mysql restart

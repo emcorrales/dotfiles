@@ -1,6 +1,10 @@
 #!/bin/bash
-# Delete detached symlink
-[ -f $/var/lib/mysql ] && sudo rm -rf /var/lib/mysql
-
-# Restore backups
-[ -f $/var/lib/mysql.bak ] && sudo cp -pRL /var/lib/mysql.bak /var/lib/mysql
+# Script for restoring backed up database that was moved to the RAM Disk.
+if [ $(uname) = "Linux" ]; then
+  # Delete detached symlink
+  [ -L /var/lib/mysql ] && sudo rm -rf /var/lib/mysql
+  # Restore backups
+  [ -d /var/lib/mysql.bak ] && sudo cp -pRL /var/lib/mysql.bak /var/lib/mysql
+else
+  echo "Unsupported platform."
+fi
