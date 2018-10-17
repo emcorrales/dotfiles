@@ -19,7 +19,7 @@ else
 fi
 
 # Create an Internet Gateway for the VPC.
-INTERNET_GATEWAY_ID=$(aws ec2 create-internet-gateway --vpc-id $VPC_ID | jq -r '.InternetGateway.InternetGatewayId')
+INTERNET_GATEWAY_ID=$(aws ec2 create-internet-gateway | jq -r '.InternetGateway.InternetGatewayId')
 if [ ! -z "$INTERNET_GATEWAY_ID" ]; then
   aws ec2 attach-internet-gateway --vpc-id $VPC_ID --internet-gateway-id $INTERNET_GATEWAY_ID --region ap-southeast-1
 else
