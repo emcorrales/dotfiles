@@ -1,3 +1,5 @@
+source .functions
+
 # Internet Gateway
 alias ig-list-ids='aws ec2 describe-internet-gateways \
   | jq -r .InternetGateways[].InternetGatewayId'
@@ -10,6 +12,8 @@ alias vpc-list-default-ids='aws ec2 describe-vpcs \
 
 alias vpc-list-custom-ids='aws ec2 describe-vpcs \
   --filters Name=isDefault,Values=false | jq -r .Vpcs[].VpcId'
+
+alias vpc-list-subnets='list_vpc_subnets'
 
 # Subnet
 alias subnet-list-ids='aws ec2 describe-subnets \
