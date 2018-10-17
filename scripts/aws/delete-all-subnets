@@ -1,0 +1,6 @@
+#!/bin/bash
+aws ec2 describe-subnets | jq -r '.Subnets[].SubnetId' | \
+  while read -r subnet ; do
+    echo "Deleting $subnet."
+    aws ec2 delete-subnet --subnet-id $subnet
+  done

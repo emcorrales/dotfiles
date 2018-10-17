@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Create a VPC.
+VPC_ID=$(aws ec2 create-vpc --cidr-block 10.0.0.0/28 | jq -r '.Vpc.VpcId')
+if [ ! -z "$VPC_ID" ]; then
+  echo "VPC with id $VPC_ID created."
+else
+  echo "Failed to create a VPC."
+  exit
+fi
+
+# Create subnet for VPC.
+SUBNET_ID=$(aws ec2 create-subnet --vpc-id $VPC_ID --cidr-block 10.0.0.0/28 | jq -r '.Subnet.SubnetId')
+if [ ! -z "$SUBNET_ID" ]; then
+  echo "Subnet with id $SUBNET_ID created."
+else
+  echo "Failed to create a subnet for $VPC_ID."
+  exit
+fi
+
+# Create an Internet Gateway for the VPC.
+INTERNET_GATEWAY_ID=$(aws ec2 create-internet-gateway --vpc-id $VPC_ID | jq -r '.InternetGateway.InternetGatewayId')
+if [ ! -z "$INTERNET_GATEWAY_ID" ]; then
+  aws ec2 attach-internet-gateway --vpc-id $VPC_ID --internet-gateway-id $INTERNET_GATEWAY_ID --region ap-southeast-1
+else
+  echo "Failed to create an internet gateway for $VPC_ID."
+fi
+
+# Create a route table.
+ROUTE_TABLE_ID=$(aws ec2 create-route-table --vpc-id vpc-a01106c2)
+if [ ! -z "$ROUTE_TABLE" ]; then
+  aws ec2 create-route --route-table-id $ROUTE_TABLE_ID \
+    --destination-cidr-block 0.0.0.0/0 --gateway-id $INTERNET_GATEWAY_ID
+
+  aws ec2 associate-route-table --route-table-id $ROUTE_TABLE_ID --subnet-id $SUBNET_ID
+else
+  echo "Failed to create route for $INTERNET_GATEWAY_ID for $VPC_ID."
+fi
+
+# Create a security group.
+SECURITY_GROUP_ID=$(aws ec2 create-security-group \
+  --group-name rails-deploy-ec2 \
+  --description "Security group for deploying a Rails application to an EC2 instance." \
+  --vpc-id $VPC_ID | jq -r '.GroupId')
+  
+if [ ! -z "$SECURITY_GROUP_ID" ]; then
+  echo "Security group with id $SECURITY_GROUP_ID created."
+  echo "Adding rules to allow SSH and HTTP request..."
+  aws ec2 authorize-security-group-ingress --group-id $SECURITY_GROUP_ID --ip-permissions \
+    IpProtocol=tcp,FromPort=22,ToPort=22,IpRanges=[{CidrIp=0.0.0.0/0}] \
+    IpProtocol=tcp,FromPort=80,ToPort=80,IpRanges=[{CidrIp=0.0.0.0/0}]
+else
+  echo "Failed to create a security group for $VPC_ID."
+  exit
+fi
+
+# Add a rule that allows inbound SSH traffic.
+#aws ec2 authorize-security-group-ingress --group-id $SECURITY_GROUP_ID \
+#  --protocol tcp --port 22  --cidr 0.0.0.0/0
+
+
+# Find the latest AMI for Ubuntu 16.04 LTS
+echo "Searching for the latest image of Ubuntu 16.04 LTS..."
+
+UBUNTU_IMAGE_ID=$(aws ec2 describe-images --owners 099720109477 \
+  --filters 'Name=name,Values=ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-????????' 'Name=state,Values=available' \
+  --output json | jq -r '.Images | sort_by(.CreationDate) | last(.[]).ImageId')
+
+if [ ! -z "$UBUNTU_IMAGE_ID" ]; then
+  echo "The id of the latest AMI for Ubuntu 16.04 LTS is $UBUNTU_IMAGE_ID."
+else
+  echo "Image of Ubuntu 16.04 LTS not found."
+  exit
+fi
+
+# Create a key pair.
+KEY_PAIR=$(aws ec2 create-key-pair --key-name RailsEC2 | jq -r '.KeyMaterial')
+if [ ! -z "$KEY_PAIR" ]; then
+  echo $KEY_PAIR  > RailsEC2.pem
+  [ -f RailsEC2.pem ] && echo "Created RailsEC2.pem file."
+else
+  echo "Keypair creation failed."
+fi
+
+# Create an EC2 instance.
+aws ec2 run-instances --count 1 --instance-type t2.micro \
+  --key-name RailsEC2 \
+  --image-id $UBUNTU_IMAGE_ID \
+  --security-group-ids $SECURITY_GROUP_ID \
+  --user-data file://bootstrap.sh \
+  --subnet-id $SUBNET_ID
