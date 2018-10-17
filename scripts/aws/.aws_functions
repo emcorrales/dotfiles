@@ -1,0 +1,7 @@
+list_vpc_subnets() {
+    if [ ! -z "$1" ]; then
+        aws ec2 describe-subnets --filter Name=vpc-id,Values=$1 | jq -r .Subnets[].SubnetId
+    else
+        echo "Please enter a valid VPC id."
+    fi
+}
