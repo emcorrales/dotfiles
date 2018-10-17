@@ -1,21 +1,20 @@
 # Internet Gateway
-alias list-internet-gateway-ids='aws ec2 describe-internet-gateways \
+alias ig-list-ids='aws ec2 describe-internet-gateways \
   | jq -r .InternetGateways[].InternetGatewayId'
 
 # VPC
-alias list-vpc-ids='aws ec2 describe-vpc | jq -r .Vpcs[].VpcId'
+alias vpc-list-ids='aws ec2 describe-vpcs | jq -r .Vpcs[].VpcId'
 
-
-alias list-default-vpc-ids='aws ec2 describe-vpcs \
-  --filters Name=isDefault,Values=false | jq -r .Vpcs[].VpcId'
-
-alias list-custom-vpc-ids='aws ec2 describe-vpcs \
+alias vpc-list-default-ids='aws ec2 describe-vpcs \
   --filters Name=isDefault,Values=true | jq -r .Vpcs[].VpcId'
 
+alias vpc-list-custom-ids='aws ec2 describe-vpcs \
+  --filters Name=isDefault,Values=false | jq -r .Vpcs[].VpcId'
+
 # Subnet
-alias list-subnet-ids='aws ec2 describe-subnets \
+alias subnet-list-ids='aws ec2 describe-subnets \
   | jq -r .Subnets[].SubnetId'
 
 # EC2
-alias list-reserved-instance-ids='aws ec2 describe-instances \
+alias ec2-list-reserved-ids='aws ec2 describe-instances \
   | jq -r .Reservations[].Instances[].InstanceId'
