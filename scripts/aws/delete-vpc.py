@@ -29,6 +29,7 @@ def remove_routes():
     route_table_iterator = iter(vpc.route_tables.all())
     while route_table_iterator:
         try:
+            is_main = False
             route_table = next(route_table_iterator)
             association_iterator = iter(route_table.associations)
             while association_iterator:
@@ -72,14 +73,14 @@ def terminate_instances():
     while instance_iterator:
         try:
             instance = next(instance_iterator)
-            instance.delete()
+            instance.terminate()
         except StopIteration:
             break
 
-remove_subnets()
+terminate_instances()
 remove_routes()
+remove_subnets()
 remove_security_groups()
 detach_internet_gateway(vpc)
-terminate_instances()
 vpc.delete()
 
