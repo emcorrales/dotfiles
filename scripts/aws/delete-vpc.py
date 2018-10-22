@@ -67,9 +67,19 @@ def remove_subnets():
         except StopIteration:
             break
 
+def terminate_instances():
+    instance_iterator = iter(vpc.instances.all())
+    while instance_iterator:
+        try:
+            instance = next(instance_iterator)
+            instance.delete()
+        except StopIteration:
+            break
+
 remove_subnets()
 remove_routes()
 remove_security_groups()
 detach_internet_gateway(vpc)
+terminate_instances()
 vpc.delete()
 
