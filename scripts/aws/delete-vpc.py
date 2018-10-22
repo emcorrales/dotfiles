@@ -5,12 +5,12 @@ import boto3
 ec2 = boto3.resource('ec2')
 vpc_id = sys.argv[1]
 
-print("Deleting ", vpc_id, "...") 
+print("Deleting ", vpc_id, "...")
 vpc = ec2.Vpc(vpc_id)
 
 def detach_internet_gateway(vpc):
     internet_gateway_iterator = iter(vpc.internet_gateways.all())
-    while gateway_iterator:
+    while internet_gateway_iterator:
         try:
             internet_gateway = next(internet_gateway_iterator)
             response = internet_gateway.detach_from_vpc(
@@ -26,9 +26,21 @@ def remove_routes():
     while route_table_iterator:
         try:
             route_table = next(route_table_iterator)
+            association_iterator = iter(route_table.associations)
+            while association_iterator:
+                try:
+                    association = next(association_iterator)
+                    is_main = association.main
+                    if not association.main:
+                        association.delete()
+                    else:
+                        break
+                except StopIteration:
+                    break
             # route = ec2.Route(route_table.route_table_id, '0.0.0.0/0')
             # route.delete()
-            route_table.delete()
+            if not is_main:
+                route_table.delete()
         except StopIteration:
             break
 
@@ -41,7 +53,7 @@ def remove_subnets():
         except StopIteration:
             break
 
-remove_subnets
+remove_subnets()
 remove_routes()
 detach_internet_gateway(vpc)
 vpc.delete()
