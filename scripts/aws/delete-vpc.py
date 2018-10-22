@@ -8,6 +8,10 @@ vpc_id = sys.argv[1]
 print("Deleting ", vpc_id, "...")
 vpc = ec2.Vpc(vpc_id)
 
+if vpc.is_default:
+    print("VPC is default and cannot be deleted.")
+    exit()
+
 def detach_internet_gateway(vpc):
     internet_gateway_iterator = iter(vpc.internet_gateways.all())
     while internet_gateway_iterator:
