@@ -48,6 +48,16 @@ def remove_routes():
         except StopIteration:
             break
 
+def remove_security_groups():
+    security_group_iterator = iter(vpc.security_groups.all())
+    while security_group_iterator:
+        try:
+            security_group = next(security_group_iterator)
+            if not security_group.group_name == 'default':
+                security_group.delete()
+        except StopIteration:
+            break
+
 def remove_subnets():
     subnet_iterator = iter(vpc.subnets.all())
     while subnet_iterator:
@@ -59,6 +69,7 @@ def remove_subnets():
 
 remove_subnets()
 remove_routes()
+remove_security_groups()
 detach_internet_gateway(vpc)
 vpc.delete()
 
