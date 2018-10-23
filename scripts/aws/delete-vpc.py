@@ -74,6 +74,7 @@ def terminate_instances():
         try:
             instance = next(instance_iterator)
             instance.terminate()
+            instance.wait_until_terminated()
         except StopIteration:
             break
 
