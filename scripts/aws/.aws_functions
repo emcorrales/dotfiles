@@ -5,3 +5,12 @@ list_vpc_subnets() {
         echo "Please enter a valid VPC id."
     fi
 }
+
+list_vpc_reserved_instance_ids() {
+    if [ ! -z "$1" ]; then
+        aws ec2 describe-instances --filter Name=vpc-id,Values=$1 | \
+            jq -r .Reservations[].Instances[].InstanceId
+    else
+        echo "Please enter a valid VPC id."
+    fi
+}
