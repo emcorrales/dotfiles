@@ -1,4 +1,4 @@
-source .functions
+source .aws_functions
 
 # Internet Gateway
 alias ig-list-ids='aws ec2 describe-internet-gateways \
