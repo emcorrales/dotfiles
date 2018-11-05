@@ -1,11 +1,17 @@
+# Lists
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# List groups.
+alias lg="echo $(cut -d: -f1 /etc/group | sort | tr '\n\' ' ' 2> /dev/null)"
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# Search history.
 alias hgrep='history | grep'
 
 alias jj='jobs'
@@ -13,6 +19,7 @@ alias rm='rm -i'
 
 alias prettify='python -mjson.tool'
 
+# Git aliases.
 alias gs='git status'
 alias gl='git log'
 alias gb='git branch'
