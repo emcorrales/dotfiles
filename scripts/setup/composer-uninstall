@@ -1,2 +1,0 @@
-[ -f $HOME/bin/composer ] && rm $HOME/composer
-[ -d $HOME/tools/.composer ] && rm -rf $HOME/.composer

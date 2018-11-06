@@ -1,8 +1,0 @@
-#!/bin/bash
-sh-keygen -t rsa -b 4096 -C "contact@emmanuelcorrales.com" -f ~/.ssh/id_rsa
-
-if [ $(uname) = "Darwin" ]; then
-  cat ~/.ssh/id_rsa.pub | pbcopy
-elif [ $(uname) = "Linux" ]; then
-  cat ~/.ssh/id_rsa.pub | xclip
-fi

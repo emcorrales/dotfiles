@@ -1,6 +1,0 @@
-#!/bin/bash
-if [ $(uname) = "Linux" ]; then
-  sudo apt-get intall tig
-elif [ $(uname) = "Darwin" ]; then
-  brew install tig wget
-fi
