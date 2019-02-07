@@ -2,6 +2,7 @@
   name = Emmanuel Corrales
 [core]
   excludesfile = ~/.gitignore_global
+  editor = vim
 [commit]
   template = ~/.gitmessage
 # Uncomment to store credentials
