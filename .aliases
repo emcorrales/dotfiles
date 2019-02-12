@@ -27,7 +27,9 @@ alias gt='git tree'
 alias gd='git diff'
 
 # Docker
-alias dcrma='docker container rm $(docker ls -aq)' # Remove all containers.
+
+# Remove all containers.
+alias dcrma='docker container rm $(docker container ls -aq)'
 
 alias txd='tmux attach -d'
 
