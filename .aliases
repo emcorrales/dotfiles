@@ -26,6 +26,9 @@ alias gb='git branch'
 alias gt='git tree'
 alias gd='git diff'
 
+# Docker
+alias dcrma='docker container rm $(docker ls -aq)' # Remove all containers.
+
 alias txd='tmux attach -d'
 
 if [ $(uname) = "Linux" ]; then
