@@ -72,7 +72,7 @@ check_args() {
     Two arguments must be provided - $# provided.
 
     Usage:
-      ./get-image-config.sh <image> <tag>
+      docker-hub inpect image:tag
 
 Aborting."
     exit 1
