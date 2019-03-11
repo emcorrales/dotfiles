@@ -5,8 +5,8 @@ set -o errexit
 main() {
   check_args "$@"
 
-  local image=$1
-  local tag=$2
+  local image=$(echo library/$1 | cut -d ':' -f 1)
+  local tag=$(echo $1 | cut -d ':' -f 2)
   local token=$(get_token $image)
   local digest=$(get_digest $image $tag $token)
 
@@ -67,7 +67,7 @@ get_digest() {
 }
 
 check_args() {
-  if (($# != 2)); then
+  if (($# != 1)); then
     echo "Error:
     Two arguments must be provided - $# provided.
 
