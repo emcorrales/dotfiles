@@ -5,8 +5,21 @@ set -o errexit
 main() {
   check_args "$@"
 
-  local image=$(echo library/$1 | cut -d ':' -f 1)
-  local tag=$(echo $1 | cut -d ':' -f 2)
+  if [[ $1 == *?":"?* ]]; then
+    local image=$(echo library/$1 | cut -d ':' -f 1)
+    local tag=$(echo $1 | cut -d ':' -f 2)
+  elif [[ $1 == *?":" ]] || [ $1 != null ]; then
+    local image=$(echo library/$1 | cut -d ':' -f 1)
+    local tag=latest
+  else
+    echo "Error:
+
+    Usage:
+      docker-hub inpect image:tag
+
+    Aborting."
+    exit 1
+  fi
   local token=$(get_token $image)
   local digest=$(get_digest $image $tag $token)
 
