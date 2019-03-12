@@ -20,6 +20,8 @@ main() {
     Aborting."
     exit 1
   fi
+
+  # echo "Retrieving info about $( echo $image | cut -c 9- ):$tag..."
   local token=$(get_token $image)
   local digest=$(get_digest $image $tag $token)
 
@@ -31,11 +33,11 @@ get_image_configuration() {
   local token=$2
   local digest=$3
 
-  echo "Retrieving Image Configuration.
-    IMAGE:  $image
-    TOKEN:  $token
-    DIGEST: $digest
-  " >&2
+#  echo "Retrieving Image Configuration.
+#    IMAGE:  $image
+#    TOKEN:  $token
+#    DIGEST: $digest
+#  " >&2
 
   curl \
     --silent \
@@ -48,9 +50,9 @@ get_image_configuration() {
 get_token() {
   local image=$1
 
-  echo "Retrieving Docker Hub token.
-    IMAGE: $image
-  " >&2
+#  echo "Retrieving Docker Hub token.
+#    IMAGE: $image
+#  " >&2
 
   curl \
     --silent \
@@ -65,11 +67,11 @@ get_digest() {
   local tag=$2
   local token=$3
 
-  echo "Retrieving image digest.
-    IMAGE:  $image
-    TAG:    $tag
-    TOKEN:  $token
-  " >&2
+#  echo "Retrieving image digest.
+#    IMAGE:  $image
+#    TAG:    $tag
+#    TOKEN:  $token
+#  " >&2
 
   curl \
     --silent \
