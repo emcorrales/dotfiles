@@ -12,6 +12,17 @@ if [ $(uname) = "Linux" ]; then
   export PATH="$HOME/.rbenv/shims:$PATH"
 elif [ $(uname) = "Darwin" ]; then
   brew install rbenv ruby-build
+
+  # Install sqlite 3.
+  brew install sqlite3
+
+  # Install MySQL.
+  brew install mysql
+  brew services start mysql
+
+  # Install PostgreSQL.
+  brew install postgresql
+  brew services start postgresql
 fi
 
 eval "$(rbenv init -)"
