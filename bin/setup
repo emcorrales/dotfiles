@@ -1,6 +1,5 @@
 #!/bin/bash
 
-COMMAND=$1
-IMAGE=$2
+SCRIPT=$1
 
-. ~/.scripts/docker/docker-hub-$COMMAND.sh $IMAGE
+. ~/.scripts/setup/$SCRIPT.sh
