@@ -3,4 +3,4 @@
 COMMAND=$1
 IMAGE=$2
 
-. ~/bin/docker/docker-hub-$COMMAND.sh $IMAGE
+. ~/.scripts/docker/docker-hub-$COMMAND.sh $IMAGE
