@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 if [ $(uname) = "Linux" ]; then
   sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev \
     libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev nodejs \
