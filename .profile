@@ -1,6 +1,4 @@
 [ -f ~/.env ] && source ~/.env
 [ -f ~/.work_profile ] && source ~/.work_profile
 
-if which rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-fi
+[[ -s "$RVM_ROOT/scripts/rvm" ]] && source "$RVM_ROOT/scripts/rvm" # Load RVM into a shell session *as a function*
