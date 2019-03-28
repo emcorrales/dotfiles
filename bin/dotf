@@ -1,0 +1,5 @@
+#!/bin/bash
+
+SCRIPT=$1
+
+. ~/.scripts/dotfiles/$SCRIPT.sh
