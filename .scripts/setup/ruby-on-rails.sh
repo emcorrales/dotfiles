@@ -4,15 +4,7 @@ if [ $(uname) = "Linux" ]; then
     libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev nodejs \
     libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
 
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-  export PATH="$HOME/.rbenv/shims:$PATH"
 elif [ $(uname) = "Darwin" ]; then
-  brew install rbenv ruby-build
-
   # Install sqlite 3.
   brew install sqlite3
 
@@ -24,6 +16,13 @@ elif [ $(uname) = "Darwin" ]; then
   brew install postgresql
   brew services start postgresql
 fi
+
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
 
 eval "$(rbenv init -)"
 
