@@ -2,4 +2,4 @@
 
 SCRIPT=$1
 
-. ~/.scripts/setup/$SCRIPT.sh
+. $DOTF_SCRIPTS_ROOT/setup/$SCRIPT.sh
