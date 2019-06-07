@@ -1,0 +1,6 @@
+#!/bin/bash
+
+COMMAND=$1
+IMAGE=$2
+
+. $DOTF_SCRIPTS_ROOT/docker/docker-utils-$COMMAND.sh $IMAGE
