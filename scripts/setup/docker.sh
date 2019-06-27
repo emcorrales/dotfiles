@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -xe
 
 if [ $(uname) = "Darwin" ]; then
   brew cask install docker
