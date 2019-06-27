@@ -14,10 +14,6 @@ if [ $(uname) = "Linux" ]; then
     sudo apt install jenkins
     sudo systemctl start jenkins
     sudo systemctl status jenkins
-
-    # Opening the Firewall
-    sudo ufw allow 8080
-    sudo ufw status
   else
     echo "Unsupported linux distro."
     exit 1
