@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xe
 if [ $(uname) = "Linux" ]; then
   if [ $(lsb_release -is) = "Ubuntu" ]; then
     sudo add-apt-repository ppa:webupd8team/java
