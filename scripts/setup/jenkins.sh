@@ -19,6 +19,6 @@ if [ $(uname) = "Linux" ]; then
     exit 1
   fi
 
-elif
+else
   exit 1
 fi
