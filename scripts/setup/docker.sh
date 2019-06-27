@@ -23,11 +23,15 @@ elif [ $(uname) = "Linux" ]; then
     sudo apt-get update
     sudo apt-get install docker-ce
 
-    # Test docker installation.
-    sudo docker run hello-world
-
     # Enable running docker without sudo.
+    sudo groupadd docker
     sudo adduser $USER docker
+    newgrp docker
+
+    # pest docker installation.
+    docker run hello-world
+
+
     echo "Please logout then login again to use docker without sudo."
   fi
 fi
