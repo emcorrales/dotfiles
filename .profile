@@ -10,3 +10,10 @@ elif [ -d $RBENV_ROOT ]; then
     eval "$(rbenv init -)"
   fi
 fi
+
+if [ -d $PYENV_ROOT ]; then
+  # Initilaze pyenv.
+  if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+  fi
+fi
