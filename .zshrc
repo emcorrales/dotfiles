@@ -1,3 +1,9 @@
+if [ $(uname) = "Linux" ]; then
+  [ -r ~/.dircolors ] && eval "$(gdircolors -b ~/.dircolors)"
+elif [ $(uname) = "Darwin" ]; then
+  export CLICOLOR=1
+fi
+
 export HISTFILESIZE=20000
 export HISTSIZE=20000
 
