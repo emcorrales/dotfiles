@@ -1,5 +1,12 @@
-# Lists
-alias ls='ls --color=auto'
+if [ $(uname) = "Linux" ]; then
+  alias ls='ls --color=auto'
+  alias xp='xclip -o'
+  alias xc='xclip -sel clipboard'
+elif [ $(uname) = "Darwin" ]; then
+  alias xp='pbpaste'
+  alias xc='pbcopy'
+fi
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -32,14 +39,6 @@ alias gd='git diff'
 alias dcrma='docker container rm $(docker container ls -aq)'
 
 alias txd='tmux attach -d'
-
-if [ $(uname) = "Linux" ]; then
-  alias xp='xclip -o'
-  alias xc='xclip -sel clipboard'
-elif [ $(uname) = "Darwin" ]; then
-  alias xp='pbpaste'
-  alias xc='pbcopy'
-fi
 
 alias dot='git --git-dir=$DOTFILES_REPO --work-tree=$HOME $@'
 alias dotfiles='git --git-dir=$DOTFILES_REPO --work-tree=$HOME $@'
