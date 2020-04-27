@@ -1,5 +1,5 @@
 if [ $(uname) = "Linux" ]; then
-  [ -r ~/.dircolors ] && eval "$(gdircolors -b ~/.dircolors)"
+  [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 elif [ $(uname) = "Darwin" ]; then
   export CLICOLOR=1
 fi
