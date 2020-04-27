@@ -4,6 +4,8 @@ elif [ $(uname) = "Darwin" ]; then
   export CLICOLOR=1
 fi
 
+[ -f ~/.aliases ] && source ~/.aliases
+
 export HISTFILESIZE=20000
 export HISTSIZE=20000
 
