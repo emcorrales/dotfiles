@@ -1,10 +1,10 @@
 if [ $(uname) = "Linux" ]; then
   alias ls='ls --color=auto'
-  alias xp='xclip -o'
-  alias xc='xclip -sel clipboard'
+  alias p='xclip -o'
+  alias yy='xclip -sel clipboard'
 elif [ $(uname) = "Darwin" ]; then
-  alias xp='pbpaste'
-  alias xc='pbcopy'
+  alias p='pbpaste'
+  alias yy='pbcopy'
 fi
 
 alias ll='ls -alF'
