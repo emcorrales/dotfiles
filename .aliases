@@ -1,14 +1,14 @@
 if [[ $(uname -r) =~ Microsoft ]]; then
   alias ls='ls --color=auto'
   alias p='powershell.exe -command "Get-Clipboard"'
-  alias yy='clip.exe'
+  alias y='clip.exe'
 elif [ $(uname) = "Linux" ]; then
   alias ls='ls --color=auto'
   alias p='xclip -o'
-  alias yy='xclip -sel clipboard'
+  alias y='xclip -sel clipboard'
 elif [ $(uname) = "Darwin" ]; then
   alias p='pbpaste'
-  alias yy='pbcopy'
+  alias y='pbcopy'
 fi
 
 alias ll='ls -alF'
