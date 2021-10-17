@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ $(uname) = "Darwin" ]; then
   echo "Installing Homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew install tmux wget coreutils grep gnu-sed
 elif [ $(uname) = "Linux" ]; then
   sudo apt-get install build-essential curl tmux xclip
