@@ -27,9 +27,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeNodeDelimiter = "\u00a0" " Temporary fix for Nerdtree show ^G
 
 " SOLARIZED
-syntax enable
-set background=dark
-silent! colorscheme solarized
+"syntax enable
+"set background=dark
+"silent! colorscheme solarized
 
 
 "-----------------------------------VISUAL--------------------------------------
