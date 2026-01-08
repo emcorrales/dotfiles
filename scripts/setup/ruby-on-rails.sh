@@ -29,11 +29,11 @@ eval "$(rbenv init -)"
 # Verify that rbenv is properly installed.
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 
-rbenv install 2.4.2
-rbenv global 2.4.2
+rbenv install 3.4.8
+rbenv global 3.4.8
+rbenv rehash
 ruby -v
 
 gem install bundler
 gem install rails
-rbenv rehash
 rails -v
