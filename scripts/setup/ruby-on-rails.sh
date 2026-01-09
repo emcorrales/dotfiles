@@ -36,4 +36,5 @@ ruby -v
 
 gem install bundler
 gem install rails
+rbenv rehash
 rails -v
