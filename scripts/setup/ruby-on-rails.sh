@@ -4,6 +4,18 @@ if [ $(uname) = "Linux" ]; then
     libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev nodejs \
     libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
 
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+  export PATH="$HOME/.rbenv/shims:$PATH"
+
+  eval "$(rbenv init -)"
+
+  # Verify that rbenv is properly installed.
+  curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+
 elif [ $(uname) = "Darwin" ]; then
   # Install sqlite 3.
   brew install sqlite3
@@ -15,23 +27,12 @@ elif [ $(uname) = "Darwin" ]; then
   # Install PostgreSQL.
   brew install postgresql
   brew services start postgresql
+
+  brew install rbenv
 fi
-
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-
-eval "$(rbenv init -)"
-
-# Verify that rbenv is properly installed.
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 
 rbenv install 3.4.8
 rbenv global 3.4.8
-rbenv rehash
 ruby -v
 
 gem install bundler
