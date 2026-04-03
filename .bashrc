@@ -1,5 +1,6 @@
-[ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
+[ -f ~/.env ] && source ~/.env
 [ -f ~/.aliases ] && source ~/.aliases
+[ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 
 [ -f ~/.prompt ] && source ~/.prompt
 

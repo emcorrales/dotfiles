@@ -1,4 +1,3 @@
-[ -f ~/.profile ] && source ~/.profile
 [ -f ~/.bashrc ] && source ~/.bashrc
 
 if [ $(uname) = "Darwin" ]; then
