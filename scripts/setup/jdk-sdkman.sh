@@ -8,8 +8,15 @@ ensure_sdkman() {
       curl -s "https://get.sdkman.io" | bash
     fi
 
-    # shellcheck source=/dev/null
-    . "${HOME}/.sdkman/bin/sdkman-init.sh"
+    if [[ -f "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
+      # shellcheck source=/dev/null
+      set +u
+      . "${HOME}/.sdkman/bin/sdkman-init.sh"
+      set -u
+    else
+      echo "SDKMAN initialization script not found at ${HOME}/.sdkman/bin/sdkman-init.sh" >&2
+      return 1
+    fi
   fi
 }
 
@@ -22,7 +29,7 @@ install_java21() {
     sdk install java 21.0.7-tem || \
     sdk install java 21.0.1-tem || {
       echo "Could not install Java 21 via SDKMAN." >&2
-      exit 1
+      return 1
     }
   fi
 
